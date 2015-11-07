@@ -8,19 +8,34 @@
 
 import UIKit
 import Alamofire
+import Mantle
 
 public class WatchRequestManager: NSObject {
     static let sharedInstance = WatchRequestManager()
     
     public func handleRequest(request:[NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
         
+        let apiKey = APIKeys.FORCAST_IO_KEY
+        let address = String(format: "https://api.forecast.io/forecast/%@/37.8267,-122.423", arguments: [apiKey])
         
-        let address = "https://api.forecast.io/forecast/bb69be65daef3de846ed82fe78f798da/37.8267,-122.423"
-        
-        Alamofire.request(.GET, address, parameters: ["foo": "bar"])
+        Alamofire.request(.GET, address)
             .responseJSON { response in
                 
-                reply(["response":response.result.value!])
+                var weatherResponse:WeatherDataResponse = WeatherDataResponse()
+                
+                do {
+                    
+                    if let JSON = response.result.value {
+                        print("JSON: \(JSON)")
+                        weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
+                    }
+                    
+                    
+                } catch {
+                    NSLog("ERROR")
+                }
+                                
+                reply(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherResponse)])
                 
         }
         

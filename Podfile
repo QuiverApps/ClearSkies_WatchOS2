@@ -6,5 +6,6 @@
 target 'ClearSkies' do
     pod 'Alamofire', '~> 3.0' 
     pod 'MMWormhole', '~> 2.0.0'
+    pod 'Mantle', '~> 2.0.5'
 end
 

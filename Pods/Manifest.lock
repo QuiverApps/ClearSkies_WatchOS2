@@ -1,15 +1,20 @@
 PODS:
   - Alamofire (3.1.2)
+  - Mantle (2.0.5):
+    - Mantle/extobjc (= 2.0.5)
+  - Mantle/extobjc (2.0.5)
   - MMWormhole (2.0.0):
     - MMWormhole/Core (= 2.0.0)
   - MMWormhole/Core (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - Mantle (~> 2.0.5)
   - MMWormhole (~> 2.0.0)
 
 SPEC CHECKSUMS:
   Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
   MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
 
 COCOAPODS: 0.39.0

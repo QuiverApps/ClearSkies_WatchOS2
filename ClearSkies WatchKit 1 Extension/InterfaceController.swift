@@ -23,7 +23,9 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         InterfaceController.openParentApplication(["request":"request"]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
-            NSLog("%@",reply)
+            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData) as! WeatherDataResponse
+            
+            NSLog("%@",response.currently)
         }
         
         
