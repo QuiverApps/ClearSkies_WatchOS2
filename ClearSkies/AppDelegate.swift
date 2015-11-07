@@ -56,6 +56,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
+    
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
+        //Converted from
+        //https://medium.com/five-minute-watchkit/one-weird-trick-to-fix-openparentapplication-reply-ad359dd00a1c
+        
+        var bogusWorkaroundTask:UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier()
+        bogusWorkaroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(bogusWorkaroundTask)
+        })
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2 * NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(bogusWorkaroundTask)
+        }
+        
+        var realBackgroundTask:UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier()
+        realBackgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler({ () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(realBackgroundTask)
+        })
+        
+        
+        WatchRequestManager.sharedInstance.handleRequest(userInfo) { (replyDictionary:[NSObject : AnyObject]?) -> Void in
+            reply(replyDictionary)
+            UIApplication.sharedApplication().endBackgroundTask(realBackgroundTask)
+        }
+        
+    }
 
 }
 

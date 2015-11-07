@@ -21,6 +21,8 @@
 		666A8AD11BEE3EE8004B1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AD01BEE3EE8004B1C12 /* Assets.xcassets */; };
 		666A8AD51BEE3EE8004B1C12 /* ClearSkies WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 666A8ABD1BEE3EE7004B1C12 /* ClearSkies WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3001BEE460000639C26 /* APIKeys.swift */; };
+		66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3031BEE501300639C26 /* WatchRequestManager.swift */; };
+		66DFC3051BEE501300639C26 /* WatchRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3031BEE501300639C26 /* WatchRequestManager.swift */; };
 		6E1EF8E6B43BCF3FDA5F3C79 /* Pods_ClearSkies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5233EFB8343FA91CC47A2FB4 /* Pods_ClearSkies.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,7 @@
 		666A8ADE1BEE3FA8004B1C12 /* ClearSkies WatchKit 1 App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ClearSkies WatchKit 1 App.entitlements"; sourceTree = "<group>"; };
 		666A8ADF1BEE3FB6004B1C12 /* ClearSkies WatchKit 1 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ClearSkies WatchKit 1 Extension.entitlements"; sourceTree = "<group>"; };
 		66DFC3001BEE460000639C26 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		66DFC3031BEE501300639C26 /* WatchRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchRequestManager.swift; sourceTree = "<group>"; };
 		7D2216A3E3C4F65BD6F982B7 /* Pods-ClearSkies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearSkies.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClearSkies/Pods-ClearSkies.release.xcconfig"; sourceTree = "<group>"; };
 		884C16BD57B0BDF835AAB300 /* Pods-ClearSkies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearSkies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClearSkies/Pods-ClearSkies.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,7 +137,8 @@
 		666A8AA41BEE3974004B1C12 /* ClearSkies */ = {
 			isa = PBXGroup;
 			children = (
-				66DFC2FF1BEE452300639C26 /* Utils */,
+				66DFC3021BEE4FD800639C26 /* Helpers */,
+				66DFC2FF1BEE452300639C26 /* Constants */,
 				666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */,
 				666A8AA51BEE3974004B1C12 /* AppDelegate.swift */,
 				666A8AA71BEE3974004B1C12 /* MasterViewController.swift */,
@@ -170,12 +174,20 @@
 			path = "ClearSkies WatchKit 1 App";
 			sourceTree = "<group>";
 		};
-		66DFC2FF1BEE452300639C26 /* Utils */ = {
+		66DFC2FF1BEE452300639C26 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				66DFC3001BEE460000639C26 /* APIKeys.swift */,
 			);
-			name = Utils;
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		66DFC3021BEE4FD800639C26 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				66DFC3031BEE501300639C26 /* WatchRequestManager.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		8DAB6325CE1720DC1280E961 /* Pods */ = {
@@ -389,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				666A8AAA1BEE3974004B1C12 /* DetailViewController.swift in Sources */,
+				66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */,
 				666A8AA81BEE3974004B1C12 /* MasterViewController.swift in Sources */,
 				66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */,
 				666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */,
@@ -399,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66DFC3051BEE501300639C26 /* WatchRequestManager.swift in Sources */,
 				666A8AC01BEE3EE7004B1C12 /* InterfaceController.swift in Sources */,
 				666A8AC21BEE3EE7004B1C12 /* GlanceController.swift in Sources */,
 			);
