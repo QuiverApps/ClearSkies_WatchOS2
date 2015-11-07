@@ -1,0 +1,6 @@
+framework module Pods_ClearSkies {
+  umbrella header "Pods-ClearSkies-umbrella.h"
+
+  export *
+  module * { export * }
+}

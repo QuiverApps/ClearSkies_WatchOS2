@@ -1,0 +1,15 @@
+PODS:
+  - Alamofire (3.1.2)
+  - MMWormhole (2.0.0):
+    - MMWormhole/Core (= 2.0.0)
+  - MMWormhole/Core (2.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - MMWormhole (~> 2.0.0)
+
+SPEC CHECKSUMS:
+  Alamofire: 7c16ca65f3c7e681fd925fd7f2dec7747ff96855
+  MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
+
+COCOAPODS: 0.39.0
