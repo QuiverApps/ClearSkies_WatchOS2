@@ -137,7 +137,7 @@
 		666A8AA41BEE3974004B1C12 /* ClearSkies */ = {
 			isa = PBXGroup;
 			children = (
-				66DFC3021BEE4FD800639C26 /* Helpers */,
+				66DFC3021BEE4FD800639C26 /* Managers */,
 				66DFC2FF1BEE452300639C26 /* Constants */,
 				666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */,
 				666A8AA51BEE3974004B1C12 /* AppDelegate.swift */,
@@ -182,12 +182,12 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
-		66DFC3021BEE4FD800639C26 /* Helpers */ = {
+		66DFC3021BEE4FD800639C26 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				66DFC3031BEE501300639C26 /* WatchRequestManager.swift */,
 			);
-			name = Helpers;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		8DAB6325CE1720DC1280E961 /* Pods */ = {

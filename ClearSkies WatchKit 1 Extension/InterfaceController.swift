@@ -23,7 +23,7 @@ class InterfaceController: WKInterfaceController {
         super.willActivate()
         
         InterfaceController.openParentApplication(["request":"request"]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
-            NSLog("REPLY RECIEVED")
+            NSLog("%@",reply)
         }
         
         
