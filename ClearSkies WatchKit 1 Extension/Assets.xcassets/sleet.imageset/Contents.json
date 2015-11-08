@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "partly-couldy-day.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sleet@2x.png",
       "scale" : "2x"
     },
     {
