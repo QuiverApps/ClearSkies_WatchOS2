@@ -15,29 +15,11 @@ public class WatchRequestManager: NSObject {
     
     public func handleRequest(request:[NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
         
-        let apiKey = APIKeys.FORCAST_IO_KEY
-        let address = String(format: "https://api.forecast.io/forecast/%@/37.8267,-122.423", arguments: [apiKey])
-        
-        Alamofire.request(.GET, address)
-            .responseJSON { response in
+        //37.8267,-122.423
+        GetForecastForLocation.doApiCall(37.8267, longitude: -122.423, success: { (weatherDataResponse:WeatherDataResponse) -> Void in
+            reply(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherDataResponse)])
+            }, failure: { () -> Void in
                 
-                var weatherResponse:WeatherDataResponse = WeatherDataResponse()
-                
-                do {
-                    
-                    if let JSON = response.result.value {
-                        print("JSON: \(JSON)")
-                        weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
-                    }
-                    
-                    
-                } catch {
-                    NSLog("ERROR")
-                }
-                                
-                reply(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherResponse)])
-                
-        }
-        
+        })
     }
 }
