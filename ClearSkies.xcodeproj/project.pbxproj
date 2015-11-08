@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		57922A979F3BFE164F0F4C6F /* Pods_ClearSkies_WatchKit_1_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D084E88488C03BEDAD7B3B49 /* Pods_ClearSkies_WatchKit_1_Extension.framework */; };
 		666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666A8AA51BEE3974004B1C12 /* AppDelegate.swift */; };
-		666A8AA81BEE3974004B1C12 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666A8AA71BEE3974004B1C12 /* MasterViewController.swift */; };
-		666A8AAA1BEE3974004B1C12 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666A8AA91BEE3974004B1C12 /* DetailViewController.swift */; };
 		666A8AAD1BEE3974004B1C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAB1BEE3974004B1C12 /* Main.storyboard */; };
 		666A8AAF1BEE3974004B1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAE1BEE3974004B1C12 /* Assets.xcassets */; };
 		666A8AB21BEE3974004B1C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AB01BEE3974004B1C12 /* LaunchScreen.storyboard */; };
@@ -22,6 +20,7 @@
 		666A8AD11BEE3EE8004B1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AD01BEE3EE8004B1C12 /* Assets.xcassets */; };
 		666A8AD51BEE3EE8004B1C12 /* ClearSkies WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 666A8ABD1BEE3EE7004B1C12 /* ClearSkies WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		669082EB1BEFAC9F00928315 /* GetForecastForLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */; };
+		669082ED1BEFC46B00928315 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669082EC1BEFC46B00928315 /* HomeViewController.swift */; };
 		66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */; };
 		66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3001BEE460000639C26 /* APIKeys.swift */; };
 		66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3031BEE501300639C26 /* WatchRequestManager.swift */; };
@@ -69,8 +68,6 @@
 		5233EFB8343FA91CC47A2FB4 /* Pods_ClearSkies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearSkies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		666A8AA21BEE3974004B1C12 /* ClearSkies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSkies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666A8AA51BEE3974004B1C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		666A8AA71BEE3974004B1C12 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		666A8AA91BEE3974004B1C12 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		666A8AAC1BEE3974004B1C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		666A8AAE1BEE3974004B1C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		666A8AB11BEE3974004B1C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +84,7 @@
 		666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ClearSkies.entitlements; sourceTree = "<group>"; };
 		666A8ADE1BEE3FA8004B1C12 /* ClearSkies WatchKit 1 App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ClearSkies WatchKit 1 App.entitlements"; sourceTree = "<group>"; };
 		666A8ADF1BEE3FB6004B1C12 /* ClearSkies WatchKit 1 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ClearSkies WatchKit 1 Extension.entitlements"; sourceTree = "<group>"; };
+		669082EC1BEFC46B00928315 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetForecastForLocation.swift; sourceTree = "<group>"; };
 		66DFC3001BEE460000639C26 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		66DFC3031BEE501300639C26 /* WatchRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchRequestManager.swift; sourceTree = "<group>"; };
@@ -160,14 +158,13 @@
 				66DFC3061BEE622E00639C26 /* Models */,
 				66DFC3021BEE4FD800639C26 /* Managers */,
 				66DFC2FF1BEE452300639C26 /* Constants */,
-				666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */,
+				669082EC1BEFC46B00928315 /* HomeViewController.swift */,
 				666A8AA51BEE3974004B1C12 /* AppDelegate.swift */,
-				666A8AA71BEE3974004B1C12 /* MasterViewController.swift */,
-				666A8AA91BEE3974004B1C12 /* DetailViewController.swift */,
 				666A8AAB1BEE3974004B1C12 /* Main.storyboard */,
 				666A8AAE1BEE3974004B1C12 /* Assets.xcassets */,
 				666A8AB01BEE3974004B1C12 /* LaunchScreen.storyboard */,
 				666A8AB31BEE3974004B1C12 /* Info.plist */,
+				666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */,
 			);
 			path = ClearSkies;
 			sourceTree = "<group>";
@@ -491,13 +488,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666A8AAA1BEE3974004B1C12 /* DetailViewController.swift in Sources */,
 				66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */,
-				666A8AA81BEE3974004B1C12 /* MasterViewController.swift in Sources */,
 				66DFC30D1BEE62AA00639C26 /* CurrentWeather.m in Sources */,
 				66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */,
 				666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */,
 				66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */,
+				669082ED1BEFC46B00928315 /* HomeViewController.swift in Sources */,
 				66DFC30A1BEE626300639C26 /* WeatherDataResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

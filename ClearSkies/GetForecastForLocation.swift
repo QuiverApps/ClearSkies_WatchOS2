@@ -14,7 +14,7 @@ public class GetForecastForLocation: NSObject {
     
     public static func doApiCall(latitude:Double, longitude:Double, success:(WeatherDataResponse) -> Void, failure:() -> Void) {
         let apiKey = APIKeys.FORCAST_IO_KEY
-        let address = String(format: "https://api.forecast.io/forecast/%@/%d,%d", arguments: [apiKey, latitude, longitude])
+        let address = String(format: "https://api.forecast.io/forecast/%@/%f,%f", arguments: [apiKey, latitude, longitude])
         
         Alamofire.request(.GET, address)
             .responseJSON { response in
