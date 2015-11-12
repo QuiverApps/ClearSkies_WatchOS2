@@ -14,33 +14,48 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet weak var loadingGroup: WKInterfaceGroup!
     @IBOutlet weak var contentGroup: WKInterfaceGroup!
+    @IBOutlet weak var errorLocationGroup: WKInterfaceGroup!
+    @IBOutlet weak var errorServiceGroup: WKInterfaceGroup!
 
     @IBOutlet weak var temperatureValueLabel: WKInterfaceLabel!
     @IBOutlet weak var weatherTypeImage: WKInterfaceImage!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        // Configure interface objects here.
     }
 
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+        self.loadingGroup.setHidden(false)
+        self.contentGroup.setHidden(true)
+        self.errorLocationGroup.setHidden(true)
+        self.errorServiceGroup.setHidden(true)
+        
         InterfaceController.openParentApplication(["request":"request"]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
-            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData) as! WeatherDataResponse
-            
-            
-            let weatherIcon:UIImage = UIImage(named: response.currently.icon)!
-            self.weatherTypeImage.setImage(weatherIcon)
-            self.temperatureValueLabel.setText(response.currently.apparentTemperature.stringValue)
-            
             self.loadingGroup.setHidden(true)
-            self.contentGroup.setHidden(false)
+
+            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
+            
+            if(response!.isKindOfClass(NSError)) {
+                let error = response as! NSError
+                let errorType = error.localizedDescription
+                
+                if(errorType == Constants.WATCH_FAILURE_LOCATION) {
+                    self.errorLocationGroup.setHidden(false)
+                } else {
+                    self.errorServiceGroup.setHidden(false)
+                }
+                
+            } else {
+                let weatherResponse = response as! WeatherDataResponse
+                let weatherIcon:UIImage = UIImage(named: weatherResponse.currently.icon)!
+                self.weatherTypeImage.setImage(weatherIcon)
+                self.temperatureValueLabel.setText(weatherResponse.currently.apparentTemperature.stringValue)
+                
+                self.contentGroup.setHidden(false)
+            }
         }
-        
-        
     }
 
     override func didDeactivate() {

@@ -30,6 +30,8 @@
 		66DFC30E1BEE688400639C26 /* WeatherDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3091BEE626300639C26 /* WeatherDataResponse.m */; };
 		66DFC30F1BEE688700639C26 /* CurrentWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC30C1BEE62AA00639C26 /* CurrentWeather.m */; };
 		66DFC3101BEE939100639C26 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3001BEE460000639C26 /* APIKeys.swift */; };
+		66EBEB591BF3BF6700BFA60C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBEB581BF3BF6700BFA60C /* Constants.swift */; };
+		66EBEB5A1BF3BF6700BFA60C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EBEB581BF3BF6700BFA60C /* Constants.swift */; };
 		6E1EF8E6B43BCF3FDA5F3C79 /* Pods_ClearSkies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5233EFB8343FA91CC47A2FB4 /* Pods_ClearSkies.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,7 @@
 		66DFC3091BEE626300639C26 /* WeatherDataResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataResponse.m; sourceTree = "<group>"; };
 		66DFC30B1BEE62AA00639C26 /* CurrentWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentWeather.h; sourceTree = "<group>"; };
 		66DFC30C1BEE62AA00639C26 /* CurrentWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentWeather.m; sourceTree = "<group>"; };
+		66EBEB581BF3BF6700BFA60C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D2216A3E3C4F65BD6F982B7 /* Pods-ClearSkies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearSkies.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClearSkies/Pods-ClearSkies.release.xcconfig"; sourceTree = "<group>"; };
 		884C16BD57B0BDF835AAB300 /* Pods-ClearSkies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearSkies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClearSkies/Pods-ClearSkies.debug.xcconfig"; sourceTree = "<group>"; };
 		9471F8C046EC6F877E2C39A5 /* Pods-ClearSkies WatchKit 1 Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearSkies WatchKit 1 Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClearSkies WatchKit 1 Extension/Pods-ClearSkies WatchKit 1 Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				66DFC3001BEE460000639C26 /* APIKeys.swift */,
+				66EBEB581BF3BF6700BFA60C /* Constants.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -495,6 +499,7 @@
 				66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */,
 				669082ED1BEFC46B00928315 /* HomeViewController.swift in Sources */,
 				66DFC30A1BEE626300639C26 /* WeatherDataResponse.m in Sources */,
+				66EBEB591BF3BF6700BFA60C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +514,7 @@
 				666A8AC01BEE3EE7004B1C12 /* InterfaceController.swift in Sources */,
 				66DFC30F1BEE688700639C26 /* CurrentWeather.m in Sources */,
 				666A8AC21BEE3EE7004B1C12 /* GlanceController.swift in Sources */,
+				66EBEB5A1BF3BF6700BFA60C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

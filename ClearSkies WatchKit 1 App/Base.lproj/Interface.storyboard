@@ -17,6 +17,20 @@
                                 </label>
                             </items>
                         </group>
+                        <group width="1" alignment="left" id="TY9-bO-MtA" userLabel="ErrorLoadingLocationGroup">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Error Getting Location" textAlignment="center" numberOfLines="2" id="zRe-Nw-gpz">
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="2wb-L4-9tf" userLabel="ErrorLoadingForecastGroup">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Error Getting Forecast" textAlignment="center" numberOfLines="2" id="ho7-ub-9Z7">
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </label>
+                            </items>
+                        </group>
                         <group width="1" alignment="left" hidden="YES" layout="vertical" id="MPV-sH-AjI" userLabel="ContentGroup">
                             <items>
                                 <group width="0.94999999999999996" alignment="center" layout="vertical" id="6CQ-07-sVI" userLabel="TextGroup">
@@ -38,6 +52,8 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="contentGroup" destination="MPV-sH-AjI" id="msE-tk-9PK"/>
+                        <outlet property="errorLocationGroup" destination="TY9-bO-MtA" id="OXS-hh-M25"/>
+                        <outlet property="errorServiceGroup" destination="2wb-L4-9tf" id="bRx-Dq-qd4"/>
                         <outlet property="loadingGroup" destination="vBw-JE-zd8" id="wEr-Xj-Iy1"/>
                         <outlet property="temperatureValueLabel" destination="5Fd-ag-EBT" id="HfD-Rb-ce2"/>
                         <outlet property="weatherTypeImage" destination="gOv-40-aRP" id="0Ak-yH-kLS"/>

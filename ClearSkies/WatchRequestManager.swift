@@ -21,7 +21,11 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         
         self.responseHandler = reply
         
-        if let _ = self.currentLocation {
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        
+        if(authorizationStatus == CLAuthorizationStatus.Denied || authorizationStatus == CLAuthorizationStatus.Restricted) {
+            self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_LOCATION))])
+        } else if let _ = self.currentLocation {
             getForecast()
         } else {
             self.locationManager = CLLocationManager()
@@ -36,7 +40,8 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         GetForecastForLocation.doApiCall(self.currentLocation.latitude, longitude: self.currentLocation.longitude, success: { (weatherDataResponse:WeatherDataResponse) -> Void in
             self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherDataResponse)])
             }, failure: { () -> Void in
-                
+                self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(self.buildErrorWithMessage(Constants.WATCH_FAILURE_SERVICE))])
+
         })
     }
     
@@ -46,5 +51,13 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         self.currentLocation = locations[0].coordinate
         
         getForecast()
+    }
+    
+    public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_LOCATION))])
+    }
+    
+    func buildErrorWithMessage(message:String) -> NSError {
+        return NSError(domain: "ClearSkies", code: 0, userInfo: [NSLocalizedDescriptionKey:message])
     }
 }
