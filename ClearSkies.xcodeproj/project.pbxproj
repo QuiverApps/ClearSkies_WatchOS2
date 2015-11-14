@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		57922A979F3BFE164F0F4C6F /* Pods_ClearSkies_WatchKit_1_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D084E88488C03BEDAD7B3B49 /* Pods_ClearSkies_WatchKit_1_Extension.framework */; };
+		6602358A1BF6522B00711147 /* Minutely.m in Sources */ = {isa = PBXBuildFile; fileRef = 660235891BF6522B00711147 /* Minutely.m */; };
+		6602358B1BF6530100711147 /* Minutely.m in Sources */ = {isa = PBXBuildFile; fileRef = 660235891BF6522B00711147 /* Minutely.m */; };
 		666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666A8AA51BEE3974004B1C12 /* AppDelegate.swift */; };
 		666A8AAD1BEE3974004B1C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAB1BEE3974004B1C12 /* Main.storyboard */; };
 		666A8AAF1BEE3974004B1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAE1BEE3974004B1C12 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		5233EFB8343FA91CC47A2FB4 /* Pods_ClearSkies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClearSkies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		660235881BF6522B00711147 /* Minutely.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Minutely.h; sourceTree = "<group>"; };
+		660235891BF6522B00711147 /* Minutely.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Minutely.m; sourceTree = "<group>"; };
 		666A8AA21BEE3974004B1C12 /* ClearSkies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClearSkies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		666A8AA51BEE3974004B1C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		666A8AAC1BEE3974004B1C12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				666A8AB01BEE3974004B1C12 /* LaunchScreen.storyboard */,
 				666A8AB31BEE3974004B1C12 /* Info.plist */,
 				666A8ADD1BEE3F07004B1C12 /* ClearSkies.entitlements */,
+				66DFC3071BEE626300639C26 /* ClearSkies-Bridging-Header.h */,
 			);
 			path = ClearSkies;
 			sourceTree = "<group>";
@@ -225,9 +230,10 @@
 			children = (
 				66DFC3081BEE626300639C26 /* WeatherDataResponse.h */,
 				66DFC3091BEE626300639C26 /* WeatherDataResponse.m */,
-				66DFC3071BEE626300639C26 /* ClearSkies-Bridging-Header.h */,
 				66DFC30B1BEE62AA00639C26 /* CurrentWeather.h */,
 				66DFC30C1BEE62AA00639C26 /* CurrentWeather.m */,
+				660235881BF6522B00711147 /* Minutely.h */,
+				660235891BF6522B00711147 /* Minutely.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 			files = (
 				66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */,
 				66DFC30D1BEE62AA00639C26 /* CurrentWeather.m in Sources */,
+				6602358A1BF6522B00711147 /* Minutely.m in Sources */,
 				66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */,
 				666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */,
 				66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */,
@@ -509,6 +516,7 @@
 			files = (
 				669082EB1BEFAC9F00928315 /* GetForecastForLocation.swift in Sources */,
 				66DFC3101BEE939100639C26 /* APIKeys.swift in Sources */,
+				6602358B1BF6530100711147 /* Minutely.m in Sources */,
 				66DFC3051BEE501300639C26 /* WatchRequestManager.swift in Sources */,
 				66DFC30E1BEE688400639C26 /* WeatherDataResponse.m in Sources */,
 				666A8AC01BEE3EE7004B1C12 /* InterfaceController.swift in Sources */,

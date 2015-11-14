@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "CurrentWeather.h"
+#import "Minutely.h"
 #import <Mantle/Mantle.h>
 
 
 @interface WeatherDataResponse : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong) CurrentWeather *currently;
+@property (nonatomic, strong) Minutely *minutely;
 @end

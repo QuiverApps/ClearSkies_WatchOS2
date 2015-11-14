@@ -12,13 +12,18 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     
     return @{
-             @"currently":@"currently"
+             @"currently":@"currently",
+             @"minutely":@"minutely"
              };
 }
 
 
 + (NSValueTransformer *)currentlyJSONTransformer {
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:[CurrentWeather class]];
+}
+
++ (NSValueTransformer *)minutelyJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[Minutely class]];
 }
 
 @end

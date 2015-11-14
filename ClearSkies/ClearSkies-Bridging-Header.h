@@ -5,3 +5,4 @@
 #import <Mantle/Mantle.h>
 #import "WeatherDataResponse.h"
 #import "CurrentWeather.h"
+#import "Minutely.h"
