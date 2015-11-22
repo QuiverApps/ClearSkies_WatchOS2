@@ -26,6 +26,8 @@ public class GetForecastForLocation: NSObject {
                     if(response.result.isSuccess) {
                         if let JSON = response.result.value {
                             weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
+                            weatherResponse.latitude = latitude;
+                            weatherResponse.longitude = longitude;
                             success(weatherResponse)
                         }
                     } else {
@@ -34,9 +36,6 @@ public class GetForecastForLocation: NSObject {
                 } catch {
                     failure()
                 }
-                
-                //reply(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherResponse)])
-                
         }
     }
 

@@ -31,15 +31,15 @@
                                 </label>
                             </items>
                         </group>
-                        <group width="1" alignment="left" hidden="YES" layout="vertical" id="MPV-sH-AjI" userLabel="ContentGroup">
+                        <group width="1" alignment="left" layout="vertical" id="MPV-sH-AjI" userLabel="ContentGroup">
                             <items>
                                 <group width="0.94999999999999996" alignment="center" layout="vertical" id="6CQ-07-sVI" userLabel="TextGroup">
                                     <items>
-                                        <label alignment="center" text="Temperature:" id="xSz-k5-Oqv" userLabel="Temp Label">
+                                        <label alignment="center" text="78.91" id="5Fd-ag-EBT" userLabel="Temp Value">
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                         </label>
-                                        <label alignment="center" text="78.91" id="5Fd-ag-EBT" userLabel="Temp Value">
+                                        <label alignment="center" text="Temperature:" textAlignment="center" numberOfLines="2" id="xSz-k5-Oqv" userLabel="Temp Label">
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                         </label>
@@ -54,6 +54,7 @@
                         <outlet property="contentGroup" destination="MPV-sH-AjI" id="msE-tk-9PK"/>
                         <outlet property="errorLocationGroup" destination="TY9-bO-MtA" id="OXS-hh-M25"/>
                         <outlet property="errorServiceGroup" destination="2wb-L4-9tf" id="bRx-Dq-qd4"/>
+                        <outlet property="forecastSummary" destination="xSz-k5-Oqv" id="2JS-Ro-nec"/>
                         <outlet property="loadingGroup" destination="vBw-JE-zd8" id="wEr-Xj-Iy1"/>
                         <outlet property="temperatureValueLabel" destination="5Fd-ag-EBT" id="HfD-Rb-ce2"/>
                         <outlet property="weatherTypeImage" destination="gOv-40-aRP" id="0Ak-yH-kLS"/>

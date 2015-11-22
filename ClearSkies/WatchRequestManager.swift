@@ -21,23 +21,29 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         
         self.responseHandler = reply
         
-        let authorizationStatus = CLLocationManager.authorizationStatus()
-        
-        if(authorizationStatus == CLAuthorizationStatus.Denied || authorizationStatus == CLAuthorizationStatus.Restricted) {
-            self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_LOCATION))])
-        } else if let _ = self.currentLocation {
-            getForecast()
+        if let requestDictionary = request {
+            let action:String = requestDictionary["action"] as! String
+            if(action == Constants.WATCH_ACTION_GET_LOCATION) {
+                let authorizationStatus = CLLocationManager.authorizationStatus()
+                if(authorizationStatus == CLAuthorizationStatus.Denied || authorizationStatus == CLAuthorizationStatus.Restricted) {
+                    self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_LOCATION))])
+                } else {
+                    getCurrentLocation()
+                }
+            } else if(action == Constants.WATCH_ACTION_GET_FORECAST) {
+                let latitude = requestDictionary["latitude"] as! NSNumber
+                let longitude = requestDictionary["longitude"] as! NSNumber
+                getForecast(latitude.doubleValue, longitude: longitude.doubleValue)
+            } else {
+                self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_NO_ACTION))])
+            }
         } else {
-            self.locationManager = CLLocationManager()
-            self.locationManager.delegate = self
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-            self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.startUpdatingLocation()
+            self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(buildErrorWithMessage(Constants.WATCH_FAILURE_NO_ACTION))])
         }
     }
     
-    func getForecast() {
-        GetForecastForLocation.doApiCall(self.currentLocation.latitude, longitude: self.currentLocation.longitude, success: { (weatherDataResponse:WeatherDataResponse) -> Void in
+    func getForecast(latitude:Double, longitude:Double) {
+        GetForecastForLocation.doApiCall(latitude, longitude: longitude, success: { (weatherDataResponse:WeatherDataResponse) -> Void in
             self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(weatherDataResponse)])
             }, failure: { () -> Void in
                 self.responseHandler(["response":NSKeyedArchiver.archivedDataWithRootObject(self.buildErrorWithMessage(Constants.WATCH_FAILURE_SERVICE))])
@@ -45,12 +51,24 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         })
     }
     
+    func getCurrentLocation() {
+        self.locationManager = CLLocationManager()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+    
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
         self.locationManager = nil
-        self.currentLocation = locations[0].coordinate
         
-        getForecast()
+        
+        let location = locations[0]
+        
+        getForecast(location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        
     }
     
     public func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {

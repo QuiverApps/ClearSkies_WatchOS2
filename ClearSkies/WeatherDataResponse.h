@@ -15,4 +15,5 @@
 @interface WeatherDataResponse : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong) CurrentWeather *currently;
 @property (nonatomic, strong) Minutely *minutely;
+@property (nonatomic, assign) double latitude, longitude;
 @end

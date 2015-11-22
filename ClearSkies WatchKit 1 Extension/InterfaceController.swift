@@ -18,7 +18,10 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var errorServiceGroup: WKInterfaceGroup!
 
     @IBOutlet weak var temperatureValueLabel: WKInterfaceLabel!
+    @IBOutlet weak var forecastSummary: WKInterfaceLabel!
     @IBOutlet weak var weatherTypeImage: WKInterfaceImage!
+    
+    var currentLocation:CLLocationCoordinate2D!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -32,29 +35,60 @@ class InterfaceController: WKInterfaceController {
         self.errorLocationGroup.setHidden(true)
         self.errorServiceGroup.setHidden(true)
         
-        InterfaceController.openParentApplication(["request":"request"]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
+        if let _ = currentLocation {
+            getForecast(currentLocation)
+        } else {
+            getCurrentLocation()
+        }
+    }
+    
+    func getCurrentLocation() {
+        InterfaceController.openParentApplication(["action":Constants.WATCH_ACTION_GET_LOCATION]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
             self.loadingGroup.setHidden(true)
-
-            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
             
-            if(response!.isKindOfClass(NSError)) {
-                let error = response as! NSError
-                let errorType = error.localizedDescription
-                
-                if(errorType == Constants.WATCH_FAILURE_LOCATION) {
-                    self.errorLocationGroup.setHidden(false)
-                } else {
-                    self.errorServiceGroup.setHidden(false)
-                }
-                
+            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
+            self.handleResponse(response)
+        }
+    }
+    
+    func getForecast(coordinate:CLLocationCoordinate2D) {
+        
+        let requestObject = ["action":Constants.WATCH_ACTION_GET_FORECAST,
+            "latitude": NSNumber(double: coordinate.latitude),
+            "longitude": NSNumber(double: coordinate.longitude)]
+        
+        InterfaceController.openParentApplication(requestObject) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
+            self.loadingGroup.setHidden(true)
+            
+            let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
+            self.handleResponse(response)
+        }
+    }
+    
+    func handleResponse(response:AnyObject?) {
+        if(response!.isKindOfClass(NSError)) {
+            let error = response as! NSError
+            let errorType = error.localizedDescription
+            
+            if(errorType == Constants.WATCH_FAILURE_LOCATION) {
+                self.errorLocationGroup.setHidden(false)
             } else {
-                let weatherResponse = response as! WeatherDataResponse
-                let weatherIcon:UIImage = UIImage(named: weatherResponse.currently.icon)!
-                self.weatherTypeImage.setImage(weatherIcon)
-                self.temperatureValueLabel.setText(weatherResponse.currently.apparentTemperature.stringValue)
-                
-                self.contentGroup.setHidden(false)
+                self.errorServiceGroup.setHidden(false)
             }
+            
+        } else {
+            let weatherResponse = response as! WeatherDataResponse
+            let weatherIcon:UIImage = UIImage(named: weatherResponse.currently.icon)!
+            self.weatherTypeImage.setImage(weatherIcon)
+            
+            let temperature = round(weatherResponse.currently.apparentTemperature.doubleValue)
+            let temperatureValue = String(format: "%.0f℉", arguments: [temperature])
+            self.temperatureValueLabel.setText(temperatureValue)
+            self.currentLocation = CLLocationCoordinate2DMake(weatherResponse.latitude, weatherResponse.longitude)
+            
+            self.forecastSummary.setText(weatherResponse.minutely.summary)
+            
+            self.contentGroup.setHidden(false)
         }
     }
 
