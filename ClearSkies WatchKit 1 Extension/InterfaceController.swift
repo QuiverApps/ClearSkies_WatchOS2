@@ -22,6 +22,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var weatherTypeImage: WKInterfaceImage!
     
     var currentLocation:CLLocationCoordinate2D!
+    var weatherData:WeatherDataResponse!
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -75,6 +76,8 @@ class InterfaceController: WKInterfaceController {
             self.addMenuItemWithItemIcon(WKMenuItemIcon.Info, title: "Forecast", action: Selector("goToHourlyForecast"))
 
             let weatherResponse = response as! WeatherDataResponse
+            self.weatherData = weatherResponse;
+            
             self.weatherTypeImage.setImage(ImageUtils.tintIconImage(weatherResponse.currently.icon))
             
             let temperature = round(weatherResponse.currently.apparentTemperature.doubleValue)
@@ -102,8 +105,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     func goToHourlyForecast() {
-        
-        self.pushControllerWithName("HourlyForecastInterfaceController", context: nil)
+        self.pushControllerWithName("HourlyForecastInterfaceController", context: self.weatherData)
     }
     
     override func didDeactivate() {

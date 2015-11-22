@@ -10,10 +10,12 @@
 #import "CurrentWeather.h"
 #import "Minutely.h"
 #import <Mantle/Mantle.h>
-
+#import "Hourly.h"
 
 @interface WeatherDataResponse : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong) CurrentWeather *currently;
 @property (nonatomic, strong) Minutely *minutely;
 @property (nonatomic, assign) double latitude, longitude;
+@property (nonatomic, strong) Hourly *hourly;
+@property (nonatomic, strong) NSString *timezone;
 @end

@@ -6,3 +6,5 @@
 #import "WeatherDataResponse.h"
 #import "CurrentWeather.h"
 #import "Minutely.h"
+#import "Hourly.h"
+#import "HourlyData.h"

@@ -23,6 +23,11 @@
 		666A8AD51BEE3EE8004B1C12 /* ClearSkies WatchKit 1 Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 666A8ABD1BEE3EE7004B1C12 /* ClearSkies WatchKit 1 Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6689C72C1C0239C8008B8275 /* HourlyForecastInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689C72B1C0239C8008B8275 /* HourlyForecastInterfaceController.swift */; };
 		6689C72E1C02417D008B8275 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689C72D1C02417D008B8275 /* ImageUtils.swift */; };
+		6689C7301C024234008B8275 /* HourForecastTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6689C72F1C024234008B8275 /* HourForecastTableRow.swift */; };
+		6689C7331C024340008B8275 /* Hourly.m in Sources */ = {isa = PBXBuildFile; fileRef = 6689C7321C024340008B8275 /* Hourly.m */; };
+		6689C7341C024340008B8275 /* Hourly.m in Sources */ = {isa = PBXBuildFile; fileRef = 6689C7321C024340008B8275 /* Hourly.m */; };
+		6689C7371C0243DF008B8275 /* HourlyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6689C7361C0243DF008B8275 /* HourlyData.m */; };
+		6689C7381C0243DF008B8275 /* HourlyData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6689C7361C0243DF008B8275 /* HourlyData.m */; };
 		669082EB1BEFAC9F00928315 /* GetForecastForLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */; };
 		669082ED1BEFC46B00928315 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669082EC1BEFC46B00928315 /* HomeViewController.swift */; };
 		66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */; };
@@ -94,6 +99,11 @@
 		666A8ADF1BEE3FB6004B1C12 /* ClearSkies WatchKit 1 Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "ClearSkies WatchKit 1 Extension.entitlements"; sourceTree = "<group>"; };
 		6689C72B1C0239C8008B8275 /* HourlyForecastInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastInterfaceController.swift; sourceTree = "<group>"; };
 		6689C72D1C02417D008B8275 /* ImageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		6689C72F1C024234008B8275 /* HourForecastTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourForecastTableRow.swift; sourceTree = "<group>"; };
+		6689C7311C024340008B8275 /* Hourly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hourly.h; sourceTree = "<group>"; };
+		6689C7321C024340008B8275 /* Hourly.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hourly.m; sourceTree = "<group>"; };
+		6689C7351C0243DF008B8275 /* HourlyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyData.h; sourceTree = "<group>"; };
+		6689C7361C0243DF008B8275 /* HourlyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyData.m; sourceTree = "<group>"; };
 		669082EC1BEFC46B00928315 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		66CF966D1BEFA7CB004FC04E /* GetForecastForLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetForecastForLocation.swift; sourceTree = "<group>"; };
 		66DFC3001BEE460000639C26 /* APIKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
@@ -191,6 +201,7 @@
 				6689C72D1C02417D008B8275 /* ImageUtils.swift */,
 				666A8AC31BEE3EE7004B1C12 /* Assets.xcassets */,
 				666A8AC51BEE3EE7004B1C12 /* Info.plist */,
+				6689C72F1C024234008B8275 /* HourForecastTableRow.swift */,
 			);
 			path = "ClearSkies WatchKit 1 Extension";
 			sourceTree = "<group>";
@@ -240,6 +251,10 @@
 				66DFC30C1BEE62AA00639C26 /* CurrentWeather.m */,
 				660235881BF6522B00711147 /* Minutely.h */,
 				660235891BF6522B00711147 /* Minutely.m */,
+				6689C7311C024340008B8275 /* Hourly.h */,
+				6689C7321C024340008B8275 /* Hourly.m */,
+				6689C7351C0243DF008B8275 /* HourlyData.h */,
+				6689C7361C0243DF008B8275 /* HourlyData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -506,11 +521,13 @@
 			files = (
 				66DFC3041BEE501300639C26 /* WatchRequestManager.swift in Sources */,
 				66DFC30D1BEE62AA00639C26 /* CurrentWeather.m in Sources */,
+				6689C7331C024340008B8275 /* Hourly.m in Sources */,
 				6602358A1BF6522B00711147 /* Minutely.m in Sources */,
 				66DFC3011BEE460000639C26 /* APIKeys.swift in Sources */,
 				666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */,
 				66CF966E1BEFA7CB004FC04E /* GetForecastForLocation.swift in Sources */,
 				669082ED1BEFC46B00928315 /* HomeViewController.swift in Sources */,
+				6689C7371C0243DF008B8275 /* HourlyData.m in Sources */,
 				66DFC30A1BEE626300639C26 /* WeatherDataResponse.m in Sources */,
 				66EBEB591BF3BF6700BFA60C /* Constants.swift in Sources */,
 			);
@@ -520,6 +537,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6689C7381C0243DF008B8275 /* HourlyData.m in Sources */,
+				6689C7341C024340008B8275 /* Hourly.m in Sources */,
 				669082EB1BEFAC9F00928315 /* GetForecastForLocation.swift in Sources */,
 				6689C72C1C0239C8008B8275 /* HourlyForecastInterfaceController.swift in Sources */,
 				66DFC3101BEE939100639C26 /* APIKeys.swift in Sources */,
@@ -530,6 +549,7 @@
 				66DFC30F1BEE688700639C26 /* CurrentWeather.m in Sources */,
 				666A8AC21BEE3EE7004B1C12 /* GlanceController.swift in Sources */,
 				66EBEB5A1BF3BF6700BFA60C /* Constants.swift in Sources */,
+				6689C7301C024234008B8275 /* HourForecastTableRow.swift in Sources */,
 				6689C72E1C02417D008B8275 /* ImageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

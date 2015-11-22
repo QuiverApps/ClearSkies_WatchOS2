@@ -13,7 +13,9 @@
     
     return @{
              @"currently":@"currently",
-             @"minutely":@"minutely"
+             @"minutely":@"minutely",
+             @"hourly":@"hourly",
+             @"timezone":@"timezone"
              };
 }
 
@@ -24,6 +26,10 @@
 
 + (NSValueTransformer *)minutelyJSONTransformer {
     return [MTLJSONAdapter dictionaryTransformerWithModelClass:[Minutely class]];
+}
+
++ (NSValueTransformer *)hourlyJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[Hourly class]];
 }
 
 @end
