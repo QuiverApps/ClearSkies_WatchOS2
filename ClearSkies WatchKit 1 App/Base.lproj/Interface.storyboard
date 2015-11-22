@@ -5,51 +5,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Currently-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ClearSkies_WatchKit_1_App" customModuleProvider="target">
+                <controller title="Currently" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="ClearSkies_WatchKit_1_App" customModuleProvider="target">
                     <items>
                         <group width="1" alignment="left" id="vBw-JE-zd8" userLabel="LoadingGroup">
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="Loading..." id="u6D-gW-vCh">
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" id="TY9-bO-MtA" userLabel="ErrorLoadingLocationGroup">
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="Error Getting Location" textAlignment="center" numberOfLines="2" id="zRe-Nw-gpz">
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </items>
                         </group>
                         <group width="1" alignment="left" id="2wb-L4-9tf" userLabel="ErrorLoadingForecastGroup">
                             <items>
                                 <label alignment="center" verticalAlignment="center" text="Error Getting Forecast" textAlignment="center" numberOfLines="2" id="ho7-ub-9Z7">
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
                             </items>
                         </group>
-                        <group width="1" alignment="left" layout="vertical" id="MPV-sH-AjI" userLabel="ContentGroup">
+                        <group width="1" alignment="left" layout="vertical" spacing="8" id="MPV-sH-AjI" userLabel="ContentGroup">
                             <items>
+                                <imageView width="75" height="75" alignment="center" image="clear-day" id="gOv-40-aRP"/>
                                 <group width="0.94999999999999996" alignment="center" layout="vertical" id="6CQ-07-sVI" userLabel="TextGroup">
                                     <items>
                                         <label alignment="center" text="78.91" id="5Fd-ag-EBT" userLabel="Temp Value">
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                         </label>
                                         <label alignment="center" text="Temperature:" textAlignment="center" numberOfLines="2" id="xSz-k5-Oqv" userLabel="Temp Label">
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
                                         </label>
                                     </items>
                                 </group>
-                                <imageView width="100" height="100" alignment="center" verticalAlignment="bottom" image="clear-day" id="gOv-40-aRP"/>
                             </items>
                         </group>
                     </items>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="contentGroup" destination="MPV-sH-AjI" id="msE-tk-9PK"/>
                         <outlet property="errorLocationGroup" destination="TY9-bO-MtA" id="OXS-hh-M25"/>
@@ -63,6 +63,27 @@
             </objects>
             <point key="canvasLocation" x="274" y="224"/>
         </scene>
+        <!--Forecast-->
+        <scene sceneID="Fvl-Be-mA3">
+            <objects>
+                <controller identifier="HourlyForecastInterfaceController" title="Forecast" id="3Ru-hb-kkr" customClass="HourlyForecastInterfaceController" customModule="ClearSkies_WatchKit_1_Extension">
+                    <items>
+                        <table alignment="left" id="LTF-Pb-ZJV">
+                            <items>
+                                <tableRow id="Q1N-4T-4SS">
+                                    <group key="rootItem" width="1" alignment="left" id="jPK-Uh-GbQ">
+                                        <items>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" id="ARi-4r-szi"/>
+                                        </items>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="495" y="224"/>
+        </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
@@ -74,7 +95,8 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="164" y="514"/>
+            <point key="canvasLocation" x="274" y="575"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.89411764709999997" green="0.2901960784" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

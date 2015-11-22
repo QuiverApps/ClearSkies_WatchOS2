@@ -25,24 +25,16 @@ class InterfaceController: WKInterfaceController {
     
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        loadWeatherData()
     }
 
     override func willActivate() {
         super.willActivate()
-        
-        self.loadingGroup.setHidden(false)
-        self.contentGroup.setHidden(true)
-        self.errorLocationGroup.setHidden(true)
-        self.errorServiceGroup.setHidden(true)
-        
-        if let _ = currentLocation {
-            getForecast(currentLocation)
-        } else {
-            getCurrentLocation()
-        }
     }
     
     func getCurrentLocation() {
+        self.clearAllMenuItems()
+
         InterfaceController.openParentApplication(["action":Constants.WATCH_ACTION_GET_LOCATION]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
             self.loadingGroup.setHidden(true)
             
@@ -52,7 +44,8 @@ class InterfaceController: WKInterfaceController {
     }
     
     func getForecast(coordinate:CLLocationCoordinate2D) {
-        
+        self.clearAllMenuItems()
+
         let requestObject = ["action":Constants.WATCH_ACTION_GET_FORECAST,
             "latitude": NSNumber(double: coordinate.latitude),
             "longitude": NSNumber(double: coordinate.longitude)]
@@ -66,6 +59,8 @@ class InterfaceController: WKInterfaceController {
     }
     
     func handleResponse(response:AnyObject?) {
+        self.addMenuItemWithItemIcon(WKMenuItemIcon.Resume, title: "Refresh", action: Selector("loadWeatherData"))
+
         if(response!.isKindOfClass(NSError)) {
             let error = response as! NSError
             let errorType = error.localizedDescription
@@ -77,9 +72,10 @@ class InterfaceController: WKInterfaceController {
             }
             
         } else {
+            self.addMenuItemWithItemIcon(WKMenuItemIcon.Info, title: "Forecast", action: Selector("goToHourlyForecast"))
+
             let weatherResponse = response as! WeatherDataResponse
-            let weatherIcon:UIImage = UIImage(named: weatherResponse.currently.icon)!
-            self.weatherTypeImage.setImage(weatherIcon)
+            self.weatherTypeImage.setImage(tintIconImage(weatherResponse.currently.icon))
             
             let temperature = round(weatherResponse.currently.apparentTemperature.doubleValue)
             let temperatureValue = String(format: "%.0f℉", arguments: [temperature])
@@ -90,6 +86,43 @@ class InterfaceController: WKInterfaceController {
             
             self.contentGroup.setHidden(false)
         }
+    }
+    
+    func loadWeatherData() {
+        self.loadingGroup.setHidden(false)
+        self.contentGroup.setHidden(true)
+        self.errorLocationGroup.setHidden(true)
+        self.errorServiceGroup.setHidden(true)
+        
+        if let _ = currentLocation {
+            getForecast(currentLocation)
+        } else {
+            getCurrentLocation()
+        }
+    }
+    
+    func goToHourlyForecast() {
+        
+        self.pushControllerWithName("HourlyForecastInterfaceController", context: nil)
+    }
+    
+    func tintIconImage(imageName:String) -> UIImage{
+        let color = UIColor(red: 249.0/255.0, green: 89.0/255.0, blue: 72.0/255.0, alpha: 1.0)
+        let image = UIImage(named: imageName)!
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+        let context = UIGraphicsGetCurrentContext()
+        color.setFill()
+        
+        CGContextTranslateCTM(context, 0, image.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextClipToMask(context, CGRectMake(0, 0, image.size.width, image.size.height), image.CGImage);
+        CGContextFillRect(context, CGRectMake(0, 0, image.size.width, image.size.height));
+        
+        let coloredImg = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        return coloredImg
     }
 
     override func didDeactivate() {
