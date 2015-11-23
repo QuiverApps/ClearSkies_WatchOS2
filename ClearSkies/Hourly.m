@@ -9,16 +9,6 @@
 #import "Hourly.h"
 
 @implementation Hourly
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    
-    return @{
-             @"hourlyData":@"data"
-             };
-}
 
-
-+ (NSValueTransformer *)hourlyDataJSONTransformer {
-    return [MTLJSONAdapter arrayTransformerWithModelClass:[HourlyData class]];
-}
 
 @end

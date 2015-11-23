@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Mantle
 
 public class GetForecastForLocation: NSObject {
     
@@ -25,7 +24,7 @@ public class GetForecastForLocation: NSObject {
                     
                     if(response.result.isSuccess) {
                         if let JSON = response.result.value {
-                            weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
+                            //weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
                             weatherResponse.latitude = latitude;
                             weatherResponse.longitude = longitude;
                             success(weatherResponse)

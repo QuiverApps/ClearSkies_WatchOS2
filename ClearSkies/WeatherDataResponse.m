@@ -9,27 +9,9 @@
 #import "WeatherDataResponse.h"
 
 @implementation WeatherDataResponse
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
+
++ (WeatherDataResponse *)buildFromJSONDictionary:(NSDictionary *)json {
     
-    return @{
-             @"currently":@"currently",
-             @"minutely":@"minutely",
-             @"hourly":@"hourly",
-             @"timezone":@"timezone"
-             };
+    return [[WeatherDataResponse alloc] init];
 }
-
-
-+ (NSValueTransformer *)currentlyJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[CurrentWeather class]];
-}
-
-+ (NSValueTransformer *)minutelyJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[Minutely class]];
-}
-
-+ (NSValueTransformer *)hourlyJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[Hourly class]];
-}
-
 @end

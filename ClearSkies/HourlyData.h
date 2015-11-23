@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle/Mantle.h>
 
-@interface HourlyData : MTLModel <MTLJSONSerializing>
+@interface HourlyData : NSObject
 @property (nonatomic, strong) NSNumber *time;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSNumber *temperature;

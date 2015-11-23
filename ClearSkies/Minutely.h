@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle/Mantle.h>
 
-@interface Minutely : MTLModel <MTLJSONSerializing>
+@interface Minutely : NSObject
 @property (nonatomic, strong) NSString *summary;
 @end

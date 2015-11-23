@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		57922A979F3BFE164F0F4C6F /* Pods_ClearSkies_WatchKit_1_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D084E88488C03BEDAD7B3B49 /* Pods_ClearSkies_WatchKit_1_Extension.framework */; };
 		6602358A1BF6522B00711147 /* Minutely.m in Sources */ = {isa = PBXBuildFile; fileRef = 660235891BF6522B00711147 /* Minutely.m */; };
 		6602358B1BF6530100711147 /* Minutely.m in Sources */ = {isa = PBXBuildFile; fileRef = 660235891BF6522B00711147 /* Minutely.m */; };
 		6629EE5B1C03639A00716AC2 /* ClearSkies WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 666A8ABD1BEE3EE7004B1C12 /* ClearSkies WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6629EE5E1C03639A00716AC2 /* ClearSkies WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 666A8AC81BEE3EE8004B1C12 /* ClearSkies WatchKit App.app */; };
+		6629EE611C037EE500716AC2 /* WatchRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DFC3031BEE501300639C26 /* WatchRequestManager.swift */; };
 		666A8AA61BEE3974004B1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666A8AA51BEE3974004B1C12 /* AppDelegate.swift */; };
 		666A8AAD1BEE3974004B1C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAB1BEE3974004B1C12 /* Main.storyboard */; };
 		666A8AAF1BEE3974004B1C12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666A8AAE1BEE3974004B1C12 /* Assets.xcassets */; };
@@ -84,6 +84,26 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66CCB70B1C039D3900805B82 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CCB7101C039D7000805B82 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -148,7 +168,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57922A979F3BFE164F0F4C6F /* Pods_ClearSkies_WatchKit_1_Extension.framework in Frameworks */,
 				C15BF7503BB8BB658663D7F3 /* Pods_ClearSkies_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +321,7 @@
 				F3E22BCB95050C1A09F97182 /* Embed Pods Frameworks */,
 				04788B4FD36CEADB1DEE13B0 /* Copy Pods Resources */,
 				6629EE601C03639A00716AC2 /* Embed Watch Content */,
+				66CCB7101C039D7000805B82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +343,7 @@
 				666A8ABB1BEE3EE7004B1C12 /* Resources */,
 				34796612EDF5817B42BAB13F /* Embed Pods Frameworks */,
 				D2C395BC5D6ACBFA57981C30 /* Copy Pods Resources */,
+				66CCB70B1C039D3900805B82 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -560,6 +581,7 @@
 				669082EB1BEFAC9F00928315 /* GetForecastForLocation.swift in Sources */,
 				6689C72C1C0239C8008B8275 /* HourlyForecastInterfaceController.swift in Sources */,
 				66DFC3101BEE939100639C26 /* APIKeys.swift in Sources */,
+				6629EE611C037EE500716AC2 /* WatchRequestManager.swift in Sources */,
 				6602358B1BF6530100711147 /* Minutely.m in Sources */,
 				66DFC30E1BEE688400639C26 /* WeatherDataResponse.m in Sources */,
 				666A8AC01BEE3EE7004B1C12 /* InterfaceController.swift in Sources */,

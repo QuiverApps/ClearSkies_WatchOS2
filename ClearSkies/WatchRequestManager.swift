@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Mantle
 import CoreLocation
 
 public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
@@ -56,7 +55,7 @@ public class WatchRequestManager: NSObject,CLLocationManagerDelegate {
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+        self.locationManager.requestLocation()
     }
     
     public func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

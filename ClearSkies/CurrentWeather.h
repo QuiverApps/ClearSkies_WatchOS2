@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle/Mantle.h>
 
 
-@interface CurrentWeather : MTLModel <MTLJSONSerializing>
+@interface CurrentWeather : NSObject
 @property (nonatomic, strong) NSNumber *apparentTemperature;
 @property (nonatomic, strong) NSString *icon;
 @end
