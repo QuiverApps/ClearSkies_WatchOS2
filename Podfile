@@ -9,7 +9,7 @@ target 'ClearSkies' do
     pod 'Mantle', '~> 2.0.5'
 end
 
-target 'ClearSkies WatchKit 1 Extension' do
+target 'ClearSkies WatchKit Extension' do
     pod 'Mantle', '~> 2.0.5'
 end
 

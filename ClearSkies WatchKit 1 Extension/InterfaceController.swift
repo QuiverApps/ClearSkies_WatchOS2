@@ -35,8 +35,8 @@ class InterfaceController: WKInterfaceController {
     
     func getCurrentLocation() {
         self.clearAllMenuItems()
-
-        InterfaceController.openParentApplication(["action":Constants.WATCH_ACTION_GET_LOCATION]) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
+        
+        WatchRequestManager.sharedInstance.handleRequest(["action":Constants.WATCH_ACTION_GET_LOCATION]) { (reply:[NSObject : AnyObject]?) -> Void in
             self.loadingGroup.setHidden(true)
             
             let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
@@ -51,7 +51,7 @@ class InterfaceController: WKInterfaceController {
             "latitude": NSNumber(double: coordinate.latitude),
             "longitude": NSNumber(double: coordinate.longitude)]
         
-        InterfaceController.openParentApplication(requestObject) { (reply:[NSObject : AnyObject], error:NSError?) -> Void in
+        WatchRequestManager.sharedInstance.handleRequest(requestObject) { (reply:[NSObject : AnyObject]?) -> Void in
             self.loadingGroup.setHidden(true)
             
             let response = NSKeyedUnarchiver.unarchiveObjectWithData(reply["response"] as! NSData)
