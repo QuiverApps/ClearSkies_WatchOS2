@@ -5,11 +5,12 @@
 
 target 'ClearSkies' do
     pod 'Alamofire', '~> 3.0' 
-    pod 'MMWormhole', '~> 2.0.0'
     pod 'Mantle', '~> 2.0.5'
 end
 
 target 'ClearSkies WatchKit Extension' do
+    platform :watchos, '2.0'
     pod 'Mantle', '~> 2.0.5'
+    pod 'Alamofire', '~> 3.0'
 end
 

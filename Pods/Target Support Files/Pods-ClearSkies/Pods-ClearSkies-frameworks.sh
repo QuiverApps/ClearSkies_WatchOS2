@@ -85,11 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ClearSkies/Alamofire.framework"
-  install_framework "Pods-ClearSkies/MMWormhole.framework"
   install_framework "Pods-ClearSkies/Mantle.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ClearSkies/Alamofire.framework"
-  install_framework "Pods-ClearSkies/MMWormhole.framework"
   install_framework "Pods-ClearSkies/Mantle.framework"
 fi
