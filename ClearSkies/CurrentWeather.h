@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface CurrentWeather : NSObject
+@interface CurrentWeather : NSObject <NSCoding>
 @property (nonatomic, strong) NSNumber *apparentTemperature;
 @property (nonatomic, strong) NSString *icon;
 

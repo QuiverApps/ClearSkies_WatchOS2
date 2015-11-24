@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "HourlyData.h"
 
-@interface Hourly : NSObject
+@interface Hourly : NSObject <NSCoding>
 @property (nonatomic, strong) NSArray *hourlyData;
-+ (Hourly *)buildFromJSONArray:(NSArray *)json;
++ (Hourly *)buildFromJSONDictionary:(NSDictionary *)json;
 @end

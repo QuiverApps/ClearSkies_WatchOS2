@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Minutely : NSObject
+@interface Minutely : NSObject <NSCoding>
 @property (nonatomic, strong) NSString *summary;
 
 + (Minutely *)buildFromJSONDictionary:(NSDictionary *)json;

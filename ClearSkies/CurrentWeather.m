@@ -9,12 +9,19 @@
 #import "CurrentWeather.h"
 
 @implementation CurrentWeather
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        _apparentTemperature = [aDecoder decodeObjectForKey:@"apparentTemperature"];
+        _icon = [aDecoder decodeObjectForKey:@"icon"];
+    }
+    return self;
     
-    return @{
-             @"apparentTemperature":@"apparentTemperature",
-             @"icon":@"icon"
-             };
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.apparentTemperature forKey:@"apparentTemperature"];
+    [aCoder encodeObject:self.icon forKey:@"icon"];
 }
 
 

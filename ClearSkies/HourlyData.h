@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HourlyData : NSObject
+@interface HourlyData : NSObject <NSCoding>
 @property (nonatomic, strong) NSNumber *time;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSNumber *temperature;

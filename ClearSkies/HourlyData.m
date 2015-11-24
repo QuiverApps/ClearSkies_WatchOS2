@@ -9,6 +9,25 @@
 #import "HourlyData.h"
 
 @implementation HourlyData
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if(self) {
+        _time = [aDecoder decodeObjectForKey:@"time"];
+        _icon = [aDecoder decodeObjectForKey:@"icon"];
+        _temperature = [aDecoder decodeObjectForKey:@"temperature"];
+    }
+    return self;
+    
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.time forKey:@"time"];
+    [aCoder encodeObject:self.icon forKey:@"icon"];
+    [aCoder encodeObject:self.temperature forKey:@"temperature"];
+}
+
+
 + (HourlyData *)buildFromJSONDictionary:(NSDictionary *)json {
     HourlyData *hourlyData = [[HourlyData alloc] init];
     hourlyData.time = [NSNumber numberWithDouble:[json[@"time"] doubleValue]];

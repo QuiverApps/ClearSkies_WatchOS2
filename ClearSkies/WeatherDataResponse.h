@@ -11,7 +11,7 @@
 #import "Minutely.h"
 #import "Hourly.h"
 
-@interface WeatherDataResponse : NSObject
+@interface WeatherDataResponse : NSObject <NSCoding>
 @property (nonatomic, strong) CurrentWeather *currently;
 @property (nonatomic, strong) Minutely *minutely;
 @property (nonatomic, assign) double latitude, longitude;

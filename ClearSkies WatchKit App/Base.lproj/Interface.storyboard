@@ -66,11 +66,11 @@
         <!--Forecast-->
         <scene sceneID="Fvl-Be-mA3">
             <objects>
-                <controller identifier="HourlyForecastInterfaceController" title="Forecast" id="3Ru-hb-kkr" customClass="HourlyForecastInterfaceController" customModule="ClearSkies_WatchKit_1_Extension">
+                <controller identifier="HourlyForecastInterfaceController" title="Forecast" id="3Ru-hb-kkr" customClass="HourlyForecastInterfaceController" customModule="ClearSkies_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="LTF-Pb-ZJV">
                             <items>
-                                <tableRow identifier="HourForecastTableRow" id="Q1N-4T-4SS" customClass="HourForecastTableRow" customModule="ClearSkies_WatchKit_1_Extension">
+                                <tableRow identifier="HourForecastTableRow" id="Q1N-4T-4SS" customClass="HourForecastTableRow" customModule="ClearSkies_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="jPK-Uh-GbQ">
                                         <items>
                                             <label alignment="left" verticalAlignment="center" text="Label" textAlignment="left" id="s3B-p9-Kfw"/>
