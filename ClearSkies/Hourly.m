@@ -10,5 +10,18 @@
 
 @implementation Hourly
 
-
++ (Hourly *)buildFromJSONArray:(NSArray *)json {
+    Hourly *hourly = [[Hourly alloc] init];
+    
+    NSMutableArray *hourlyDataArray = [[NSMutableArray alloc] init];
+    
+    for(NSDictionary *data in json) {
+        HourlyData *hourlyData = [HourlyData buildFromJSONDictionary:data];
+        [hourlyDataArray addObject:hourlyData];
+    }
+    
+    hourly.hourlyData = hourlyDataArray;
+    
+    return hourly;
+}
 @end

@@ -12,4 +12,6 @@
 @interface CurrentWeather : NSObject
 @property (nonatomic, strong) NSNumber *apparentTemperature;
 @property (nonatomic, strong) NSString *icon;
+
++ (CurrentWeather *)buildFromJSONDictionary:(NSDictionary *)json;
 @end

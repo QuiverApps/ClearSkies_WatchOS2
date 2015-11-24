@@ -9,10 +9,10 @@
 #import "Minutely.h"
 
 @implementation Minutely
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    
-    return @{
-             @"summary":@"summary"
-             };
+
++ (Minutely *)buildFromJSONDictionary:(NSDictionary *)json {
+    Minutely *minutely = [[Minutely alloc] init];
+    minutely.summary = json[@"summary"];
+    return minutely;
 }
 @end

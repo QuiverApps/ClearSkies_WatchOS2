@@ -10,4 +10,6 @@
 
 @interface Minutely : NSObject
 @property (nonatomic, strong) NSString *summary;
+
++ (Minutely *)buildFromJSONDictionary:(NSDictionary *)json;
 @end

@@ -11,4 +11,5 @@
 
 @interface Hourly : NSObject
 @property (nonatomic, strong) NSArray *hourlyData;
++ (Hourly *)buildFromJSONArray:(NSArray *)json;
 @end

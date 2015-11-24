@@ -12,4 +12,6 @@
 @property (nonatomic, strong) NSNumber *time;
 @property (nonatomic, strong) NSString *icon;
 @property (nonatomic, strong) NSNumber *temperature;
+
++ (HourlyData *)buildFromJSONDictionary:(NSDictionary *)json;
 @end

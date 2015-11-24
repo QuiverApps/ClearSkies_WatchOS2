@@ -18,24 +18,18 @@ public class GetForecastForLocation: NSObject {
         Alamofire.request(.GET, address)
             .responseJSON { response in
                 
-                var weatherResponse:WeatherDataResponse = WeatherDataResponse()
-                
-                do {
-                    
-                    if(response.result.isSuccess) {
-                        if let JSON = response.result.value {
-                            //weatherResponse = try MTLJSONAdapter.modelOfClass(WeatherDataResponse.self, fromJSONDictionary: JSON as! [NSObject : AnyObject]) as! WeatherDataResponse
-                            weatherResponse.latitude = latitude;
-                            weatherResponse.longitude = longitude;
-                            success(weatherResponse)
-                        }
-                    } else {
-                        failure()
-                    }
-                } catch {
-                    failure()
+            var weatherResponse:WeatherDataResponse = WeatherDataResponse()
+
+            if(response.result.isSuccess) {
+                if let JSON = response.result.value {
+                    weatherResponse = WeatherDataResponse.buildFromJSONDictionary(JSON as! [NSObject : AnyObject])
+                    weatherResponse.latitude = latitude;
+                    weatherResponse.longitude = longitude;
+                    success(weatherResponse)
                 }
+            } else {
+                failure()
+            }
         }
     }
-
 }

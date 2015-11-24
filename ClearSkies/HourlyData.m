@@ -9,12 +9,11 @@
 #import "HourlyData.h"
 
 @implementation HourlyData
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    
-    return @{
-             @"time":@"time",
-             @"icon":@"icon",
-             @"temperature":@"temperature"
-             };
++ (HourlyData *)buildFromJSONDictionary:(NSDictionary *)json {
+    HourlyData *hourlyData = [[HourlyData alloc] init];
+    hourlyData.time = [NSNumber numberWithDouble:[json[@"time"] doubleValue]];
+    hourlyData.icon = json[@"icon"];
+    hourlyData.temperature = [NSNumber numberWithDouble:[json[@"temperature"] doubleValue]];
+    return hourlyData;
 }
 @end

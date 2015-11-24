@@ -12,6 +12,13 @@
 
 + (WeatherDataResponse *)buildFromJSONDictionary:(NSDictionary *)json {
     
-    return [[WeatherDataResponse alloc] init];
+    WeatherDataResponse *weatherData = [[WeatherDataResponse alloc] init];
+    
+    weatherData.currently = [CurrentWeather buildFromJSONDictionary:json[@"currently"]];
+    weatherData.minutely = [Minutely buildFromJSONDictionary:json[@"minutely"]];
+    weatherData.hourly = [Hourly buildFromJSONArray:json[@"hourly"]];
+    weatherData.timezone = json[@"timezone"];
+
+    return weatherData;
 }
 @end
